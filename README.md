@@ -9,7 +9,7 @@ Separate open pull requests
 Week 2: add JPA + H2
 Week 3: add Order -> Catalog communication with OpenFeign
 
-Week 3 Questions:
+Week 4 Questions:
 
 1. Which table owns the foreign key?
 -- products owns the foreign key
