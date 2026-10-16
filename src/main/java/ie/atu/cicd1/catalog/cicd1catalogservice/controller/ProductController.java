@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
 import java.util.List;
 @RestController
 @RequestMapping("/products")
@@ -22,5 +24,9 @@ public class ProductController {
     @ResponseStatus(HttpStatus.CREATED)
     public Product create(@RequestBody Product product) {
         return service.create(product);
+    }
+    @GetMapping("/min-price")
+    public List<Product> getByMinimumPrice(@RequestParam BigDecimal minPrice) {
+        return service.getByMinimumPrice(minPrice);
     }
 }

@@ -4,6 +4,7 @@ import ie.atu.cicd1.catalog.cicd1catalogservice.model.Product;
 import ie.atu.cicd1.catalog.cicd1catalogservice.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,5 +26,9 @@ public class ProductService {
     public Product create(Product product) {
         product.setId(null);
         return productRepository.save(product);
+    }
+
+    public List<Product> getByMinimumPrice(BigDecimal minPrice) {
+        return productRepository.findByMinPrice(minPrice);
     }
 }
