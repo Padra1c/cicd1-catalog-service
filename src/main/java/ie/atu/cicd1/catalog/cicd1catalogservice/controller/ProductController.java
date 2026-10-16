@@ -1,5 +1,6 @@
 package ie.atu.cicd1.catalog.cicd1catalogservice.controller;
 
+import ie.atu.cicd1.catalog.cicd1catalogservice.dto.CreateProductRequest;
 import ie.atu.cicd1.catalog.cicd1catalogservice.model.Product;
 import ie.atu.cicd1.catalog.cicd1catalogservice.service.ProductService;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +23,8 @@ public class ProductController {
     }
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Product create(@RequestBody Product product) {
-        return service.create(product);
+    public Product create(@RequestBody CreateProductRequest product) {
+        return service.createProduct(product);
     }
     @GetMapping("/min-price")
     public List<Product> getByMinimumPrice(@RequestParam BigDecimal minPrice) {
