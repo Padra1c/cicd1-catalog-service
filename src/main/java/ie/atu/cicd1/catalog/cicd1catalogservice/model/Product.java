@@ -2,6 +2,8 @@ package ie.atu.cicd1.catalog.cicd1catalogservice.model;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 @Entity
 @Table(name = "products")
 public class Product {
@@ -42,5 +44,13 @@ public class Product {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+    public Category getCategory() { return category; }
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
